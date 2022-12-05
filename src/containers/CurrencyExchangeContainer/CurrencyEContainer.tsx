@@ -86,7 +86,7 @@ const mapStateToProps = ( { currency } : {currency: CurrencyState} ): CurrencySt
     };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<CurrencyReducersTypes>) : any => {
+/* const mapDispatchToProps = (dispatch: Dispatch<CurrencyReducersTypes>) : any => {
     return {
         setCurrencyAmount(amountOfBYN: string, amountOfCurrency: string) {
             dispatch(ChangeCurrencyFieldAC(amountOfBYN, amountOfCurrency));
@@ -98,6 +98,11 @@ const mapDispatchToProps = (dispatch: Dispatch<CurrencyReducersTypes>) : any => 
             dispatch(СhangeCurrentCurrencyAC(currency));
         },
     };
+}; */
+const mapDispatchToProps = {
+    setCurrencyAmount: ChangeCurrencyFieldAC,
+    setAction: ChangeActionAC,
+    changeCurrency: СhangeCurrentCurrencyAC,
 };
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
