@@ -4,31 +4,55 @@ console.log('lesson 4');
 // https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
 
 
-// Task 01
+//+ Task 01
 // Создайте промис, который постоянно находиться в состоянии pending.
 // В конструкторе промиса выведите в консоль сообщение "Promise is created".
 
+/* const promise1 = new Promise(() => {console.log('Promise is created')}) 
+console.log(promise1) */
 
-// Task 02
+//+ Task 02
 // Создайте промис, который после создания сразу же переходит в состояние resolve
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
 
+/* const promise2 = new Promise((resolve, reject) => {
+    resolve('Promise Data')
+})
+promise2.then((data => console.log(data)))
+console.log(promise2) */
 
-// Task 03
+
+//+ Task 03
 // Создайте промис, который после создания сразу же переходит в состояние rejected
 // и возвращает строку 'Promise Error'
 // Получите данные промиса и выведите их в консоль
 
+/* const promise3 = new Promise((resolve, rejected) => {
+    rejected('Promise Error')
+})
+promise3.catch((error => console.log(error)))
+console.log(promise3) */
 
-// Task 04
+//+ Task 04
 // Создайте промис, который переходит в состояние resolved через 3с.
 // (Используйте setTimeout)
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
 
+/* const promise4 = new Promise((res, rej) => {
+    setTimeout(() => {
+        res('Promise Data')
+    }, 3000)
+})
+promise4.then(data => console.log(data))
+console.log(promise4)
+setTimeout(() => {
+    console.log(promise4)
+}, 4000) */
 
-// Task 05
+
+//--- Task 05
 // Создайте литерал объекта handlePromise со следующими свойствами:
 // promise, resolve, reject, onSuccess, onError
 // Проинициализируйте первые три свойства null,
@@ -42,21 +66,51 @@ console.log('lesson 4');
 // resolve и reject. Следующие два обработчика запускают методы resolve и reject.
 
 
-// Task 06
+
+//+ Task 06
 // Создайте промис, который через 1 с возвращает строку "My name is".
 // Создайте функцию onSuccess, которая получает один параметр,
 // прибавляет к нему Ваше имя и возвращает новую строку из функции
 // Создайте функцию print, которая выводит в консоль значение своего параметра
 // Добавьте два метода then и передайте созданные функции.
 
+/* const promise6 = new Promise((res) => {
+    setTimeout(() => {
+        res("My name is")
+    }, 1000)
+})
+function onSuccess(param: any) {
+    return param + ` Serg`
+}
+function print(param: any) {
+    console.log(param)
+}
+promise6.then(onSuccess).then(print) */
 
-// Task 7
+//+ Task 7
 // Создайте три промиса. Первый промис возвращает объект { name: "Anna" } через 2с,
 // второй промис возвращает объект {age: 16} через 3 с, а третий {city: ''} через 4с.
 // Получите результаты работы промисов, объедините свойства объектов
 // и выведите в консоль {name, age, city}
 
-
+/* const promise71 = new Promise((res) => {
+    setTimeout(() => {
+        res({ name: "Anna" })
+    }, 2000)
+})
+const promise72 = new Promise((res) => {
+    setTimeout(() => {
+        res({age: 16})
+    }, 3000)
+})
+const promise73 = new Promise((res) => {
+    setTimeout(() => {
+        res({city: ''})
+    }, 4000)
+})
+Promise.all([promise71, promise72, promise73]).then(data => {
+    console.log(Object.assign({}, ...data))
+}) */
 
 // just a plug
 export default ()=>{};
